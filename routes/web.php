@@ -54,9 +54,9 @@ Route::prefix('profile')->group(function () {
 });
 
 Route::prefix('profilejs')->group(function () {
-    Route::get('/{user}', [ProfileJSController::class, 'profileJS'])->name('profilevjs');
-    Route::get('/savemainadrs', [ProfileJSController::class, 'SaveIdMainAddress'])->name('savemainadrs');
     Route::get('/saveprofilejs', [ProfileJSController::class, 'SaveJS']);
+    Route::get('/savemainadrs', [ProfileJSController::class, 'SaveIdMainAddress'])->name('savemainadrs');
+    Route::get('/{user}', [ProfileJSController::class, 'profileJS'])->name('profilevjs');
 });
 
 Route::post('/admin/products', [AdminController::class, 'listCategory'])->name('listCategory');

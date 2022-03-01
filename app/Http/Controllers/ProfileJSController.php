@@ -121,6 +121,7 @@ class ProfileJSController extends Controller
         $user->save();
         //session()->flash('profileSaved');
         $profileSaved=true;
+        
         return compact('addressexist','profileSaved');
     }
 }

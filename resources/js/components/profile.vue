@@ -35,7 +35,7 @@
     
     <div class="mb-3">
             <label class="form-label">Текущий пароль</label>
-            <input type="password" autocomplete="off" v-model="current_password" class="form-control" >
+            <input type="password" autocomplete="off" v-model="currpasswor" class="form-control" >
         </div>
         <div class="mb-3">
             <label class="form-label">Новый пароль</label>
@@ -150,7 +150,7 @@
                     }
                     console.log(params)
                    
-                    axios.get('/profilejs/saveMainAdrs', { params } )
+                    axios.get('/profilejs/savemainadrs', { params } )
                      .then(response => {
                          console.log('response.data=',response.data)
                      }
@@ -159,8 +159,10 @@
 
                 SaveProfile()
                 {
+                    console.log('SaveProfile')
                     this.errors=[]
                     this.file=this.$refs.file.files[0]
+                    console.log('this.file=',this.file)
                     const params=
                     {
                         picture: this.file,
@@ -171,12 +173,11 @@
                         confpassword: this.confpassword,
                         name: this.name,
                         email:this.email,
-                        mainCheck: this.maincheck,    
-                        userId: this.userId,
+                        userId: this.user.id,
                         user: this.user
 
                     }
-
+                    console.log( params)
                     axios.get('/profilejs/saveprofilejs', { params } )
                     .then( response =>{
                         
